@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity
         implements View.OnClickListener {
 
     ImageButton trem;
+    ImageButton carro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +18,23 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         trem = findViewById(R.id.btnTrem);
+        carro = findViewById(R.id.btnCarro);
 
         trem.setOnClickListener(this);
+        carro.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(this, "Piuíííí...", Toast.LENGTH_SHORT).show();
+
+        String mensagem = "ERRO";
+
+        if(v.getId() == R.id.btnTrem) {
+            mensagem = "Piuííííí...";
+        } else if(v.getId() == R.id.btnCarro) {
+            mensagem = "Vruuummm...";
+        }
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show();
     }
 }
